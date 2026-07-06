@@ -4,9 +4,9 @@ while (isRunning)
 {
     Console.WriteLine("===== DAY 4 - COLLECTIONS AND FUNCTIONS =====");
     Console.WriteLine("1. Bai 1 - Quan ly danh sach sinh vien");
-    Console.WriteLine("2. Bai 2 - Xu ly chuoi ho ten");
-    Console.WriteLine("3. Bai 3 - Xu ly ngay thang");
-    Console.WriteLine("4. Bai 4 - Tong hop voi function");
+    Console.WriteLine("2. Bai 2 - Tim kiem sinh vien");
+    Console.WriteLine("3. Bai 3 - Tach chuc nang thanh function");
+    Console.WriteLine("4. Mini challenge - Kiem tra mat khau");
     Console.WriteLine("0. Thoat");
     Console.Write("Chon bai: ");
 
@@ -19,15 +19,15 @@ while (isRunning)
             break;
 
         case "2":
-            RunStringExercise();
+            RunStudentSearchExercise();
             break;
 
         case "3":
-            RunDateTimeExercise();
+            RunFunctionRefactorExercise();
             break;
 
         case "4":
-            RunFunctionReviewExercise();
+            RunPasswordChallenge();
             break;
 
         case "0":
@@ -48,17 +48,17 @@ static void RunStudentListExercise()
     Console.WriteLine("Ban da chon Bai 1 - Quan ly danh sach sinh vien.");
 }
 
-static void RunStringExercise()
+static void RunStudentSearchExercise()
 {
-    Console.WriteLine("Ban da chon Bai 2 - Xu ly chuoi ho ten.");
+    Console.WriteLine("Ban da chon Bai 2 - Tim kiem sinh vien.");
 }
 
-static void RunDateTimeExercise()
+static void RunFunctionRefactorExercise()
 {
-    Console.WriteLine("Ban da chon Bai 3 - Xu ly ngay thang.");
+    Console.WriteLine("Ban da chon Bai 3 - Tach chuc nang thanh function.");
 }
 
-static void RunFunctionReviewExercise()
+static void RunPasswordChallenge()
 {
-    Console.WriteLine("Ban da chon Bai 4 - Tong hop voi function.");
+    Console.WriteLine("Ban da chon Bai 4 - Kiem tra mat khau.");
 }
