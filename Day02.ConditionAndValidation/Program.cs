@@ -1,6 +1,7 @@
 ﻿Console.WriteLine("===== DAY 2 - CONDITION AND VALIDATION =====");
 Console.WriteLine("1. Bai 1 - Tinh diem trung binh va xep loai sinh vien");
 Console.WriteLine("2. Bai 2 - Tinh hoa don co giam gia");
+Console.WriteLine("3. Bai 3 - Tinh giam gia theo loai khach hang");
 Console.Write("Chon bai: ");
 
 string choice = Console.ReadLine();
@@ -122,7 +123,8 @@ else if (choice == "2")
     }
     else if (totalAmount >= 500000)
     {
-        discountPercent = 0.05m;// m là kiểu số deximal 
+        discountPercent = 0.05m;// m là kiểu số deximal Vì discountPercent, totalAmount, discountAmount 
+        //là tiền/tỷ lệ tính với decimal, nên viết 0.10m thay vì 0.10.
     }
     else
     {
@@ -137,6 +139,79 @@ else if (choice == "2")
     Console.WriteLine($"So luong: {quantity}");
     Console.WriteLine($"Don gia: {price}");
     Console.WriteLine($"Tong tien: {totalAmount}");
+    Console.WriteLine($"Phan tram giam gia: {discountPercent * 100}%");
+    Console.WriteLine($"Tien giam: {discountAmount}");
+    Console.WriteLine($"Tien phai tra: {finalAmount}");
+}
+else if (choice == "3")
+{
+    Console.WriteLine("===== BAI 3 - GIAM GIA THEO LOAI KHACH HANG =====");
+
+    Console.Write("Nhap ten khach hang: ");
+    string customerName = Console.ReadLine();
+
+    if (string.IsNullOrWhiteSpace(customerName))
+    {
+        Console.WriteLine("Ten khach hang khong duoc de trong.");
+        return;
+    }
+
+    Console.Write("Nhap tong tien hoa don: ");
+    string billInput = Console.ReadLine();
+    bool isValidBill = decimal.TryParse(billInput, out decimal billAmount);
+
+    if (!isValidBill || billAmount <= 0)
+    {
+        Console.WriteLine("Tong tien hoa don khong hop le. Tong tien phai lon hon 0.");
+        return;
+    }
+
+    Console.WriteLine("Chon loai khach hang:");
+    Console.WriteLine("1. Thuong");
+    Console.WriteLine("2. Bac");
+    Console.WriteLine("3. Vang");
+    Console.WriteLine("4. Kim cuong");
+    Console.Write("Lua chon: ");
+
+    string customerTypeChoice = Console.ReadLine();
+
+    string customerTypeName;
+    decimal discountPercent;
+
+    switch (customerTypeChoice)
+    {
+        case "1":
+            customerTypeName = "Thuong";
+            discountPercent = 0m;
+            break;
+
+        case "2":
+            customerTypeName = "Bac";
+            discountPercent = 0.05m;
+            break;
+
+        case "3":
+            customerTypeName = "Vang";
+            discountPercent = 0.10m;
+            break;
+
+        case "4":
+            customerTypeName = "Kim cuong";
+            discountPercent = 0.15m;
+            break;
+
+        default:
+            Console.WriteLine("Loai khach hang khong hop le.");
+            return;
+    }
+
+    decimal discountAmount = billAmount * discountPercent;
+    decimal finalAmount = billAmount - discountAmount;
+
+    Console.WriteLine("===== KET QUA HOA DON =====");
+    Console.WriteLine($"Ten khach hang: {customerName}");
+    Console.WriteLine($"Loai khach hang: {customerTypeName}");
+    Console.WriteLine($"Tong tien ban dau: {billAmount}");
     Console.WriteLine($"Phan tram giam gia: {discountPercent * 100}%");
     Console.WriteLine($"Tien giam: {discountAmount}");
     Console.WriteLine($"Tien phai tra: {finalAmount}");
