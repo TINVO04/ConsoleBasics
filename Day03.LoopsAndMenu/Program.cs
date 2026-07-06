@@ -63,8 +63,25 @@ while (isRunning)
     break;
 
         case "2":
-            Console.WriteLine("Ban da chon Bai 2.");
-            break;
+    Console.WriteLine("===== BAI 2 - BANG CUU CHUONG =====");
+
+    Console.Write("Nhap so nguyen can in bang cuu chuong: ");
+    string multiplicationInput = Console.ReadLine();
+    bool isValidMultiplicationNumber = int.TryParse(multiplicationInput, out int multiplicationNumber);
+
+    if (!isValidMultiplicationNumber)
+    {
+        Console.WriteLine("So nhap vao khong hop le.");
+        break;
+    }
+
+    for (int i = 1; i <= 10; i++)
+    {
+        int result = multiplicationNumber * i;
+        Console.WriteLine($"{multiplicationNumber} x {i} = {result}");
+    }
+
+    break;
 
         case "3":
             Console.WriteLine("Ban da chon Bai 3.");
