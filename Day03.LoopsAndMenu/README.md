@@ -1,0 +1,216 @@
+# Day 03 - Loops And Menu
+
+## Mục tiêu
+
+- Luyện tạo menu Console chạy lặp bằng `while`.
+- Luyện xử lý lựa chọn menu bằng `switch/case`.
+- Luyện dùng vòng lặp `for` khi biết trước số lần lặp.
+- Luyện dùng `foreach` để duyệt danh sách.
+- Luyện kiểm tra dữ liệu nhập bằng `int.TryParse`.
+- Luyện kiểm tra chuỗi rỗng bằng `string.IsNullOrWhiteSpace`.
+- Biết tính tổng, trung bình cộng và tìm số lớn nhất trong nhiều số nguyên.
+- Biết in bảng cửu chương bằng vòng lặp.
+- Biết quản lý danh sách tên đơn giản bằng `List<string>`.
+- Biết dùng `break` để dừng xử lý khi dữ liệu không hợp lệ.
+- Biết để chương trình quay lại menu sau khi chạy xong một bài.
+- Biết chặn nhập sai menu để chương trình không dừng đột ngột.
+
+## Bài đã hoàn thành
+
+### Bài 1: Nhập n số nguyên, tính tổng, trung bình và số lớn nhất
+
+Chương trình cho phép nhập:
+
+- Số lượng số nguyên `n`.
+- Lần lượt `n` số nguyên.
+
+Sau đó chương trình tính:
+
+```text
+Tổng = Tổng tất cả số đã nhập
+Trung bình = Tổng / n
+Số lớn nhất = Giá trị lớn nhất trong các số đã nhập
+```
+
+Chương trình có kiểm tra dữ liệu nhập:
+
+- `n` phải là số nguyên.
+- `n` phải lớn hơn `0`.
+- Các số nhập vào phải là số nguyên.
+- Nếu nhập sai, chương trình báo lỗi và không bị crash.
+- Sau khi chạy xong hoặc nhập sai, chương trình quay lại menu chính.
+
+### Bài 2: In bảng cửu chương
+
+Chương trình cho phép nhập một số nguyên, sau đó in bảng cửu chương của số đó từ `1` đến `10`.
+
+Ví dụ khi nhập `5`, chương trình sẽ in:
+
+```text
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+...
+5 x 10 = 50
+```
+
+Chương trình có kiểm tra dữ liệu nhập:
+
+- Số nhập vào phải là số nguyên.
+- Nếu nhập sai, chương trình báo lỗi và không bị crash.
+- Sau khi chạy xong hoặc nhập sai, chương trình quay lại menu chính.
+
+### Bài 3: Quản lý danh sách tên
+
+Chương trình cho phép quản lý danh sách tên bằng menu con.
+
+Menu con gồm các chức năng:
+
+```text
+1. Them ten
+2. Hien thi danh sach ten
+0. Quay lai menu chinh
+```
+
+Chức năng chính:
+
+- Thêm tên vào danh sách.
+- Kiểm tra tên không được để trống.
+- Hiển thị danh sách tên đã nhập.
+- Báo danh sách rỗng nếu chưa có tên nào.
+- Cho phép quay lại menu chính.
+
+Chương trình sử dụng `List<string>` để lưu nhiều tên và dùng `foreach` để duyệt danh sách khi hiển thị.
+
+### Mini challenge: Chặn nhập sai menu
+
+Chương trình đã xử lý lựa chọn không hợp lệ ở menu chính và menu con.
+
+Nếu người dùng nhập sai lựa chọn, ví dụ `9`, `abc` hoặc nhập rỗng, chương trình sẽ:
+
+- Báo lựa chọn không hợp lệ.
+- Không bị crash.
+- Không dừng đột ngột.
+- Quay lại menu để người dùng chọn lại.
+
+## Cách chạy chương trình
+
+Mở Terminal tại thư mục gốc repo và chạy:
+
+```powershell
+dotnet run --project Day03.LoopsAndMenu
+```
+
+Sau khi chạy, chương trình hiển thị menu:
+
+```text
+===== DAY 3 - LOOPS AND MENU =====
+1. Bai 1 - Nhap n so nguyen
+2. Bai 2 - In bang cuu chuong
+3. Bai 3 - Quan ly danh sach ten
+0. Thoat
+Chon bai:
+```
+
+Nhập `1` để chạy Bài 1.
+
+Nhập `2` để chạy Bài 2.
+
+Nhập `3` để chạy Bài 3.
+
+Nhập `0` để thoát chương trình.
+
+Nếu nhập lựa chọn không hợp lệ, chương trình sẽ báo lỗi lựa chọn và quay lại menu.
+
+## Kiến thức đã hiểu
+
+- `while` dùng để lặp menu chính cho đến khi người dùng chọn thoát.
+- `bool` dùng để lưu trạng thái đúng/sai, ví dụ biến kiểm soát chương trình còn chạy hay không.
+- `switch/case` phù hợp khi cần xử lý nhiều lựa chọn cố định từ menu.
+- `default` trong `switch` dùng để xử lý lựa chọn không hợp lệ.
+- `break` dùng để kết thúc một nhánh `case` hoặc dừng xử lý khi dữ liệu không hợp lệ.
+- `Console.WriteLine` dùng để in một dòng ra màn hình và xuống dòng.
+- `Console.Write` dùng để in ra màn hình nhưng không xuống dòng.
+- `Console.ReadLine` dùng để đọc dữ liệu người dùng nhập từ bàn phím.
+- Dữ liệu nhập từ `Console.ReadLine` ban đầu là `string`.
+- `int.TryParse` dùng để thử chuyển chuỗi sang số nguyên và tránh chương trình bị crash.
+- `string.IsNullOrWhiteSpace` dùng để kiểm tra chuỗi rỗng hoặc chỉ có khoảng trắng.
+- `if` dùng để kiểm tra điều kiện hợp lệ hoặc không hợp lệ.
+- `for` phù hợp khi biết trước số lần lặp, ví dụ lặp từ `1` đến `n`.
+- `foreach` phù hợp khi cần duyệt từng phần tử trong danh sách.
+- `List<string>` dùng để lưu danh sách nhiều chuỗi.
+- `Add` dùng để thêm phần tử vào danh sách.
+- `Count` dùng để kiểm tra số lượng phần tử trong danh sách.
+- Biến tổng dùng để cộng dồn giá trị qua từng lần lặp.
+- Biến số lớn nhất dùng để lưu giá trị lớn nhất hiện tại trong quá trình nhập dữ liệu.
+- Ép kiểu `(double)` khi tính trung bình để tránh kết quả bị chia nguyên.
+- Vòng lặp `for` cũng phù hợp để in bảng cửu chương từ `1` đến `10`.
+- Một biến kết quả có thể được tạo trong từng vòng lặp để lưu kết quả phép nhân.
+
+## Test case
+
+| Bài | Trường hợp | Dữ liệu nhập | Kết quả mong đợi |
+|---|---|---|---|
+| Menu | Chọn Bài 1 | Chọn `1` | Chạy chức năng nhập `n` số nguyên |
+| Menu | Chọn Bài 2 | Chọn `2` | Chạy chức năng in bảng cửu chương |
+| Menu | Chọn Bài 3 | Chọn `3` | Chạy menu con quản lý danh sách tên |
+| Menu | Chọn sai menu | Chọn `9` | Báo lựa chọn không hợp lệ và quay lại menu |
+| Menu | Nhập chữ ở menu | Chọn `abc` | Báo lựa chọn không hợp lệ và quay lại menu |
+| Menu | Thoát chương trình | Chọn `0` | In lời chào tạm biệt và thoát chương trình |
+| Bài 1 | Dữ liệu hợp lệ | Chọn `1`, `n = 3`, nhập `2`, `5`, `8` | Tổng `15`, trung bình `5`, số lớn nhất `8` |
+| Bài 1 | Có số âm | Chọn `1`, `n = 3`, nhập `-2`, `5`, `1` | Tổng `4`, trung bình khoảng `1.3333`, số lớn nhất `5` |
+| Bài 1 | `n` là chữ | Chọn `1`, `n = abc` | Báo `n` không hợp lệ, chương trình không crash |
+| Bài 1 | `n` bằng 0 | Chọn `1`, `n = 0` | Báo `n` không hợp lệ |
+| Bài 1 | `n` âm | Chọn `1`, `n = -1` | Báo `n` không hợp lệ |
+| Bài 1 | Một số nhập sai | Chọn `1`, `n = 3`, số thứ hai nhập `abc` | Báo giá trị không hợp lệ, chương trình không crash |
+| Bài 2 | Số dương | Chọn `2`, nhập `5` | In bảng cửu chương từ `5 x 1` đến `5 x 10` |
+| Bài 2 | Số 0 | Chọn `2`, nhập `0` | In bảng cửu chương từ `0 x 1` đến `0 x 10` |
+| Bài 2 | Số âm | Chọn `2`, nhập `-3` | In bảng cửu chương từ `-3 x 1` đến `-3 x 10` |
+| Bài 2 | Nhập chữ | Chọn `2`, nhập `abc` | Báo số nhập vào không hợp lệ, chương trình không crash |
+| Bài 3 | Danh sách rỗng | Chọn `3`, chọn `2` khi chưa thêm tên | Báo danh sách tên đang rỗng |
+| Bài 3 | Thêm tên hợp lệ | Chọn `3`, chọn `1`, nhập `An` | Báo đã thêm tên vào danh sách |
+| Bài 3 | Hiển thị danh sách | Sau khi thêm `An`, chọn `2` | In ra `- An` |
+| Bài 3 | Thêm nhiều tên | Thêm `An`, `Binh`, `Cuong`, chọn `2` | Hiển thị đủ các tên đã thêm |
+| Bài 3 | Tên rỗng | Chọn `1`, nhập rỗng | Báo tên không được để trống |
+| Bài 3 | Chọn sai menu con | Chọn `9` trong menu con | Báo lựa chọn không hợp lệ và quay lại menu con |
+| Bài 3 | Quay lại menu chính | Chọn `0` trong menu con | Quay lại menu chính Day 3 |
+
+## Lỗi đã gặp
+
+| Lỗi | Nguyên nhân | Cách xử lý |
+|---|---|---|
+| Người dùng có thể nhập chữ thay vì số lượng `n` | Dữ liệu từ `Console.ReadLine` ban đầu là chuỗi | Dùng `int.TryParse` để kiểm tra trước khi lặp |
+| Người dùng có thể nhập `n <= 0` | Số lượng phần tử không hợp lệ để nhập danh sách số | Thêm điều kiện kiểm tra `n <= 0` |
+| Người dùng có thể nhập chữ trong lúc nhập từng số | Dữ liệu nhập từ bàn phím có thể không phải số nguyên | Dùng `int.TryParse` cho từng số nhập vào |
+| Trung bình có thể bị sai nếu chia nguyên | `int / int` có thể cho kết quả chia nguyên | Ép kiểu sang `double` trước khi chia |
+| Menu có thể kết thúc ngay sau khi chọn một bài | Chưa dùng vòng lặp để giữ chương trình chạy liên tục | Dùng `while` và biến `bool` để lặp menu |
+| Người dùng có thể nhập chữ khi in bảng cửu chương | Dữ liệu từ `Console.ReadLine` ban đầu là chuỗi | Dùng `int.TryParse` để kiểm tra trước khi nhân |
+| Người dùng có thể nhập tên rỗng | Chuỗi nhập vào có thể rỗng hoặc chỉ có khoảng trắng | Dùng `string.IsNullOrWhiteSpace` để kiểm tra |
+| Người dùng có thể chọn hiển thị khi danh sách chưa có tên | Danh sách chưa có phần tử nào | Kiểm tra `names.Count == 0` trước khi duyệt danh sách |
+| Người dùng có thể nhập sai lựa chọn ở menu chính hoặc menu con | Lựa chọn không khớp với các `case` hợp lệ | Dùng `default` để báo lỗi và quay lại menu |
+
+## Phần chưa hiểu/cần luyện thêm
+
+- Luyện thêm cách dùng `for`, `while`, `break` và `continue` trong nhiều tình huống khác nhau.
+- Luyện thêm cách viết menu con cho từng nhóm chức năng.
+- Luyện thêm cách đặt tên biến rõ nghĩa khi xử lý vòng lặp.
+- Luyện thêm cách tách logic thành hàm để chương trình dễ đọc hơn ở các bài sau.
+- Luyện thêm cách xử lý khi nhập sai nhưng vẫn cho người dùng nhập lại thay vì quay về menu.
+- Luyện thêm cách dùng `List<T>` với các thao tác thêm, sửa, xóa, tìm kiếm.
+
+## Tự đánh giá
+
+- Đã tạo được Console App cho Day 3.
+- Đã tạo được menu chính chạy lặp bằng `while`.
+- Đã biết dùng `switch/case` để xử lý lựa chọn menu.
+- Đã làm được Bài 1: nhập `n` số nguyên, tính tổng, trung bình và số lớn nhất.
+- Đã làm được Bài 2: in bảng cửu chương bằng vòng lặp.
+- Đã làm được Bài 3: quản lý danh sách tên bằng menu con.
+- Đã biết dùng `for` để lặp theo số lần nhập từ người dùng.
+- Đã biết dùng `foreach` để duyệt danh sách.
+- Đã biết dùng `List<string>` để lưu nhiều tên.
+- Đã biết dùng `int.TryParse` để kiểm tra nhập sai cơ bản.
+- Đã biết dùng `string.IsNullOrWhiteSpace` để kiểm tra tên rỗng.
+- Đã biết kiểm tra `n` phải lớn hơn `0`.
+- Đã hoàn thành mini challenge chặn nhập sai menu để chương trình không dừng đột ngột.
+- Cần tiếp tục luyện refactor/tách hàm để code dễ đọc hơn ở các bài sau.
