@@ -1,0 +1,29 @@
+name: .NET CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - "feature/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore Day01.ConsoleBasics/Day01.ConsoleBasics.csproj
+
+      - name: Build project
+        run: dotnet build Day01.ConsoleBasics/Day01.ConsoleBasics.csproj --configuration Release --no-restore
