@@ -1,6 +1,7 @@
-﻿Console.WriteLine("===== DAY 1 - CONSOLE BASICS =====");
+Console.WriteLine("===== DAY 1 - CONSOLE BASICS =====");
 Console.WriteLine("1. Bai 1 - In thong tin ca nhan");
 Console.WriteLine("2. Bai 2 - Tinh tong tien san pham");
+Console.WriteLine("3. Bai 3 - Tinh tuoi gan dung");
 Console.Write("Chon bai: ");
 
 string choice = Console.ReadLine();
@@ -48,6 +49,28 @@ else if (choice == "2")
     Console.WriteLine($"So luong: {quantity}");
     Console.WriteLine($"Don gia: {price}");
     Console.WriteLine($"Tong tien: {total}");
+}
+else if (choice == "3")
+{
+    Console.WriteLine("===== TINH TUOI GAN DUNG =====");
+
+    Console.Write("Nhap nam sinh: ");
+    string birthYearInput = Console.ReadLine();
+    bool isValidBirthYear = int.TryParse(birthYearInput, out int birthYear);
+
+    int currentYear = DateTime.Now.Year;
+
+    if (!isValidBirthYear || birthYear <= 0 || birthYear > currentYear)
+    {
+        Console.WriteLine("Nam sinh khong hop le.");
+        return;
+    }
+
+    int age = currentYear - birthYear;
+
+    Console.WriteLine($"Nam hien tai: {currentYear}");
+    Console.WriteLine($"Nam sinh: {birthYear}");
+    Console.WriteLine($"Tuoi gan dung: {age}");
 }
 else
 {
