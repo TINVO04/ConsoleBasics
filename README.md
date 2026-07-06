@@ -16,7 +16,8 @@ Repo thực hành C# Console App theo lộ trình .NET cơ bản.
 | Thư mục/File | Nội dung | Trạng thái |
 |---|---|---|
 | `Day01.ConsoleBasics` | Console App Day 1: nhập/xuất, biến, kiểu dữ liệu, tính toán đơn giản | Hoàn thành |
-| `Day02.ConditionAndValidation` | Console App Day 2: điều kiện, validate, `if/else`, `switch/case` | Hoàn thành, chuẩn bị tạo Pull Request |
+| `Day02.ConditionAndValidation` | Console App Day 2: điều kiện, validate, `if/else`, `switch/case` | Hoàn thành, đã merge vào `main` |
+| `Day03.LoopsAndMenu` | Console App Day 3: vòng lặp, menu lặp, danh sách tên, mini challenge chặn nhập sai menu | Hoàn thành, chuẩn bị tạo Pull Request |
 | `.github/workflows/dotnet-ci.yml` | GitHub Actions workflow để build project .NET | Đã thêm |
 
 ## Day 1 - Console Basics
@@ -55,6 +56,26 @@ Xem chi tiết tại:
 Day02.ConditionAndValidation/README.md
 ```
 
+## Day 3 - Loops And Menu
+
+Nội dung đã làm:
+
+- Bài 1: Nhập `n` số nguyên, tính tổng, trung bình cộng và số lớn nhất.
+- Bài 2: In bảng cửu chương bằng vòng lặp.
+- Bài 3: Quản lý danh sách tên bằng menu con.
+- Có menu chính chạy lặp bằng `while`.
+- Có menu con cho Bài 3.
+- Có kiểm tra dữ liệu nhập sai bằng `int.TryParse` và `string.IsNullOrWhiteSpace`.
+- Có xử lý lựa chọn bằng `switch/case`.
+- Có mini challenge chặn nhập sai menu để chương trình không dừng đột ngột.
+- Có README riêng cho Day 3.
+
+Xem chi tiết tại:
+
+```text
+Day03.LoopsAndMenu/README.md
+```
+
 ## Cách chạy Day 1
 
 Mở Terminal tại thư mục gốc repo và chạy:
@@ -87,6 +108,24 @@ Sau khi chạy, chọn bài trong menu:
 3. Bai 3 - Tinh giam gia theo loai khach hang
 ```
 
+## Cách chạy Day 3
+
+Mở Terminal tại thư mục gốc repo và chạy:
+
+```powershell
+dotnet run --project Day03.LoopsAndMenu
+```
+
+Sau khi chạy, chọn bài trong menu:
+
+```text
+===== DAY 3 - LOOPS AND MENU =====
+1. Bai 1 - Nhap n so nguyen
+2. Bai 2 - In bang cuu chuong
+3. Bai 3 - Quan ly danh sach ten
+0. Thoat
+```
+
 ## Git workflow
 
 Mỗi ngày học nên làm trên branch riêng theo mẫu:
@@ -100,6 +139,7 @@ Ví dụ:
 ```text
 feature/week1-day01-tinvo
 feature/week1-day02-tinvo
+feature/week1-day03-tinvo
 ```
 
 Quy trình cơ bản:
@@ -131,4 +171,5 @@ CI hiện kiểm tra:
 | Ngày | Nội dung | Trạng thái |
 |---|---|---|
 | Day 1 | Console basics, biến, kiểu dữ liệu, nhập/xuất, tính toán đơn giản | Hoàn thành, đã merge vào `main` |
-| Day 2 | Input, ép kiểu, `if/else`, `switch/case`, validate cơ bản | Hoàn thành, chuẩn bị tạo Pull Request |
+| Day 2 | Input, ép kiểu, `if/else`, `switch/case`, validate cơ bản | Hoàn thành, đã merge vào `main` |
+| Day 3 | Vòng lặp, menu lặp, `for`, `while`, `foreach`, `List<string>`, chặn nhập sai menu | Hoàn thành, chuẩn bị tạo Pull Request |
