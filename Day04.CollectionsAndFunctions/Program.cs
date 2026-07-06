@@ -3,7 +3,7 @@
 while (isRunning)
 {
     Console.WriteLine("===== DAY 4 - COLLECTIONS AND FUNCTIONS =====");
-    Console.WriteLine("1. Bai 1 - Quan ly danh sach diem");
+    Console.WriteLine("1. Bai 1 - Quan ly danh sach sinh vien");
     Console.WriteLine("2. Bai 2 - Xu ly chuoi ho ten");
     Console.WriteLine("3. Bai 3 - Xu ly ngay thang");
     Console.WriteLine("4. Bai 4 - Tong hop voi function");
@@ -15,7 +15,7 @@ while (isRunning)
     switch (choice)
     {
         case "1":
-            RunScoreListExercise();
+            RunStudentListExercise();
             break;
 
         case "2":
@@ -43,9 +43,9 @@ while (isRunning)
     Console.WriteLine();
 }
 
-static void RunScoreListExercise()
+static void RunStudentListExercise()
 {
-    Console.WriteLine("Ban da chon Bai 1 - Quan ly danh sach diem.");
+    Console.WriteLine("Ban da chon Bai 1 - Quan ly danh sach sinh vien.");
 }
 
 static void RunStringExercise()
