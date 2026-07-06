@@ -84,8 +84,65 @@ while (isRunning)
     break;
 
         case "3":
-            Console.WriteLine("Ban da chon Bai 3.");
-            break;
+    Console.WriteLine("===== BAI 3 - QUAN LY DANH SACH TEN =====");
+
+    List<string> names = new List<string>();
+    bool isNameMenuRunning = true;
+
+    while (isNameMenuRunning)
+    {
+        Console.WriteLine("1. Them ten");
+        Console.WriteLine("2. Hien thi danh sach ten");
+        Console.WriteLine("0. Quay lai menu chinh");
+        Console.Write("Chon chuc nang: ");
+
+        string nameMenuChoice = Console.ReadLine();
+
+        switch (nameMenuChoice)
+        {
+            case "1":
+                Console.Write("Nhap ten: ");
+                string name = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.WriteLine("Ten khong duoc de trong.");
+                    break;
+                }
+
+                names.Add(name);
+                Console.WriteLine("Da them ten vao danh sach.");
+                break;
+
+            case "2":
+                if (names.Count == 0)
+                {
+                    Console.WriteLine("Danh sach ten dang rong.");
+                    break;
+                }
+
+                Console.WriteLine("Danh sach ten:");
+
+                foreach (string item in names)
+                {
+                    Console.WriteLine($"- {item}");
+                }
+
+                break;
+
+            case "0":
+                isNameMenuRunning = false;
+                break;
+
+            default:
+                Console.WriteLine("Lua chon khong hop le.");
+                break;
+        }
+
+        Console.WriteLine();
+    }
+
+    break;
 
         case "0":
             Console.WriteLine("Tam biet!");
