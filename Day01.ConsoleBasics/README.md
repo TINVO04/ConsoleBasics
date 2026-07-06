@@ -3,9 +3,12 @@
 ## Mục tiêu
 
 - Hiểu Console App cơ bản.
-- Biết in dữ liệu ra màn hình bằng Console.WriteLine.
+- Biết in dữ liệu ra màn hình bằng `Console.WriteLine`.
+- Biết nhập dữ liệu từ bàn phím bằng `Console.ReadLine`.
 - Biết chương trình chạy từ trên xuống dưới.
-- Chuẩn bị học nhập dữ liệu, biến và kiểu dữ liệu.
+- Biết khai báo biến và chọn kiểu dữ liệu cơ bản.
+- Biết tính toán đơn giản với số lượng, đơn giá và tổng tiền.
+- Biết kiểm tra dữ liệu nhập sai cơ bản bằng `TryParse`.
 
 ## Bài đã hoàn thành
 
@@ -19,7 +22,94 @@ Chương trình in ra các thông tin:
 - Mục tiêu học .NET
 - Ngày học
 
+### Bài 2: Nhập tên sản phẩm, số lượng, đơn giá và tính tổng tiền
+
+Chương trình cho phép nhập:
+
+- Tên sản phẩm
+- Số lượng
+- Đơn giá
+
+Sau đó chương trình tính:
+
+```text
+Tổng tiền = Số lượng * Đơn giá
+```
+
+Chương trình có kiểm tra dữ liệu nhập:
+
+- Số lượng phải là số nguyên lớn hơn 0.
+- Đơn giá phải là số lớn hơn 0.
+- Nếu nhập sai, chương trình báo lỗi và không bị crash.
+
 ## Cách chạy chương trình
 
 Mở Terminal tại thư mục gốc của repo và chạy:
+
+```powershell
 dotnet run --project Day01.ConsoleBasics
+```
+
+Sau khi chạy, chương trình hiển thị menu:
+
+```text
+===== DAY 1 - CONSOLE BASICS =====
+1. Bai 1 - In thong tin ca nhan
+2. Bai 2 - Tinh tong tien san pham
+Chon bai:
+```
+
+Nhập `1` để chạy Bài 1.
+
+Nhập `2` để chạy Bài 2.
+
+Nếu nhập lựa chọn không hợp lệ, chương trình sẽ báo lỗi lựa chọn.
+
+## Kiến thức đã hiểu
+
+- `Console.WriteLine` dùng để in một dòng ra màn hình và xuống dòng.
+- `Console.Write` dùng để in ra màn hình nhưng không xuống dòng.
+- `Console.ReadLine` dùng để đọc dữ liệu người dùng nhập từ bàn phím.
+- Nội dung trong dấu nháy kép là chuỗi ký tự.
+- Dấu chấm phẩy `;` dùng để kết thúc một câu lệnh trong C#.
+- Chương trình chạy từ trên xuống dưới theo thứ tự câu lệnh.
+- `string` dùng để lưu chuỗi, ví dụ tên sản phẩm.
+- `int` dùng để lưu số nguyên, ví dụ số lượng.
+- `decimal` phù hợp để lưu giá tiền và tổng tiền.
+- `int.TryParse` dùng để thử chuyển chuỗi sang số nguyên.
+- `decimal.TryParse` dùng để thử chuyển chuỗi sang số thập phân hoặc tiền.
+- `if`, `else if`, `else` dùng để xử lý điều kiện và lựa chọn menu.
+- `return` dùng để dừng chương trình sớm khi dữ liệu không hợp lệ.
+
+## Test case
+
+| Bài | Trường hợp | Dữ liệu nhập | Kết quả mong đợi |
+|---|---|---|---|
+| Bài 1 | Chạy Bài 1 | Chọn `1` | In đúng thông tin cá nhân và lớp học |
+| Menu | Chọn sai menu | Chọn `9` | Báo lựa chọn không hợp lệ |
+| Bài 2 | Dữ liệu hợp lệ | Chọn `2`, sản phẩm `But bi`, số lượng `2`, đơn giá `5000` | Tổng tiền `10000` |
+| Bài 2 | Số lượng là chữ | Chọn `2`, số lượng `abc` | Báo số lượng không hợp lệ, chương trình không crash |
+| Bài 2 | Số lượng âm | Chọn `2`, số lượng `-1` | Báo số lượng không hợp lệ |
+| Bài 2 | Đơn giá là chữ | Chọn `2`, đơn giá `abc` | Báo đơn giá không hợp lệ, chương trình không crash |
+| Bài 2 | Đơn giá bằng 0 | Chọn `2`, đơn giá `0` | Báo đơn giá không hợp lệ |
+
+## Lỗi đã gặp
+
+| Lỗi | Nguyên nhân | Cách xử lý |
+|---|---|---|
+| Chương trình crash khi nhập `abc` vào số lượng | Dùng `int.Parse` nên không xử lý được chuỗi không phải số | Đổi sang `int.TryParse` để kiểm tra nhập hợp lệ trước khi tính |
+| Chương trình có thể crash khi nhập `abc` vào đơn giá | Dùng `decimal.Parse` nên không xử lý được chuỗi không phải số | Đổi sang `decimal.TryParse` để kiểm tra nhập hợp lệ trước khi tính |
+
+## Phần chưa hiểu
+
+- Tiếp tục luyện thêm cách dùng `TryParse`.
+- Tiếp tục luyện thêm cách đặt tên biến rõ nghĩa.
+- Tiếp tục luyện cách viết test case đầy đủ hơn.
+
+## Tự đánh giá
+
+- Đã tạo và chạy được Console App.
+- Đã làm được Bài 1 và Bài 2.
+- Đã biết tạo menu đơn giản để chọn bài.
+- Đã biết kiểm tra nhập sai cơ bản để chương trình không crash.
+- Cần tiếp tục luyện giải thích flow chương trình trước khi nộp bài.
