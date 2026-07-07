@@ -17,7 +17,8 @@ Repo thực hành C# Console App theo lộ trình .NET cơ bản.
 |---|---|---|
 | `Day01.ConsoleBasics` | Console App Day 1: nhập/xuất, biến, kiểu dữ liệu, tính toán đơn giản | Hoàn thành |
 | `Day02.ConditionAndValidation` | Console App Day 2: điều kiện, validate, `if/else`, `switch/case` | Hoàn thành, đã merge vào `main` |
-| `Day03.LoopsAndMenu` | Console App Day 3: vòng lặp, menu lặp, danh sách tên, mini challenge chặn nhập sai menu | Hoàn thành, chuẩn bị tạo Pull Request |
+| `Day03.LoopsAndMenu` | Console App Day 3: vòng lặp, menu lặp, danh sách tên, mini challenge chặn nhập sai menu | Hoàn thành, đã merge vào `main` |
+| `Day04.CollectionsAndFunctions` | Console App Day 4: `List<string>`, tìm kiếm chuỗi, tách function, mini challenge kiểm tra mật khẩu | Hoàn thành, chuẩn bị tạo Pull Request |
 | `.github/workflows/dotnet-ci.yml` | GitHub Actions workflow để build project .NET | Đã thêm |
 
 ## Day 1 - Console Basics
@@ -76,6 +77,27 @@ Xem chi tiết tại:
 Day03.LoopsAndMenu/README.md
 ```
 
+## Day 4 - Collections And Functions
+
+Nội dung đã làm:
+
+- Bài 1: Quản lý danh sách sinh viên bằng `List<string>`.
+- Bài 2: Tìm kiếm sinh viên không phân biệt hoa/thường.
+- Bài 3: Tách các chức năng menu thành function riêng.
+- Mini challenge: Kiểm tra mật khẩu có độ dài >= 8 và có ký tự viết hoa.
+- Có menu chính cho Day 4.
+- Có menu con quản lý danh sách sinh viên.
+- Có sử dụng `List<string>` để lưu danh sách sinh viên.
+- Có xử lý chuỗi bằng `Trim`, `ToLower` và `Contains`.
+- Có kiểm tra mật khẩu bằng `Length` và `char.IsUpper`.
+- Có README riêng cho Day 4.
+
+Xem chi tiết tại:
+
+```text
+Day04.CollectionsAndFunctions/README.md
+```
+
 ## Cách chạy Day 1
 
 Mở Terminal tại thư mục gốc repo và chạy:
@@ -126,6 +148,25 @@ Sau khi chạy, chọn bài trong menu:
 0. Thoat
 ```
 
+## Cách chạy Day 4
+
+Mở Terminal tại thư mục gốc repo và chạy:
+
+```powershell
+dotnet run --project Day04.CollectionsAndFunctions
+```
+
+Sau khi chạy, chọn bài trong menu:
+
+```text
+===== DAY 4 - COLLECTIONS AND FUNCTIONS =====
+1. Bai 1 - Quan ly danh sach sinh vien
+2. Bai 2 - Tim kiem sinh vien
+3. Bai 3 - Tach chuc nang thanh function
+4. Mini challenge - Kiem tra mat khau
+0. Thoat
+```
+
 ## Git workflow
 
 Mỗi ngày học nên làm trên branch riêng theo mẫu:
@@ -140,6 +181,7 @@ Ví dụ:
 feature/week1-day01-tinvo
 feature/week1-day02-tinvo
 feature/week1-day03-tinvo
+feature/week1-day04-tinvo
 ```
 
 Quy trình cơ bản:
@@ -172,4 +214,5 @@ CI hiện kiểm tra:
 |---|---|---|
 | Day 1 | Console basics, biến, kiểu dữ liệu, nhập/xuất, tính toán đơn giản | Hoàn thành, đã merge vào `main` |
 | Day 2 | Input, ép kiểu, `if/else`, `switch/case`, validate cơ bản | Hoàn thành, đã merge vào `main` |
-| Day 3 | Vòng lặp, menu lặp, `for`, `while`, `foreach`, `List<string>`, chặn nhập sai menu | Hoàn thành, chuẩn bị tạo Pull Request |
+| Day 3 | Vòng lặp, menu lặp, `for`, `while`, `foreach`, `List<string>`, chặn nhập sai menu | Hoàn thành, đã merge vào `main` |
+| Day 4 | `List<string>`, xử lý chuỗi, tìm kiếm không phân biệt hoa/thường, function, kiểm tra mật khẩu | Hoàn thành, chuẩn bị tạo Pull Request |
