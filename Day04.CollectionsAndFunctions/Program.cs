@@ -22,7 +22,7 @@ while (isRunning)
             break;
 
         case "2":
-            RunStudentSearchExercise();
+            RunStudentSearchExercise(students);
             break;
 
         case "3":
@@ -105,9 +105,46 @@ static void RunStudentListExercise(List<string> students)
     }
 }
 
-static void RunStudentSearchExercise()
+static void RunStudentSearchExercise(List<string> students)
 {
-    Console.WriteLine("Ban da chon Bai 2 - Tim kiem sinh vien.");
+    Console.WriteLine("===== BAI 2 - TIM KIEM SINH VIEN =====");
+
+    if (students.Count == 0)
+    {
+        Console.WriteLine("Danh sach sinh vien dang rong.");
+        return;
+    }
+
+    Console.Write("Nhap tu khoa tim kiem: ");
+    string keyword = Console.ReadLine();
+
+    if (string.IsNullOrWhiteSpace(keyword))
+    {
+        Console.WriteLine("Tu khoa tim kiem khong duoc de trong.");
+        return;
+    }
+
+    string normalizedKeyword = keyword.Trim().ToLower();
+
+    bool isFound = false;
+
+    Console.WriteLine("Ket qua tim kiem:");
+
+    foreach (string student in students)
+    {
+        string normalizedStudent = student.ToLower();
+
+        if (normalizedStudent.Contains(normalizedKeyword))
+        {
+            Console.WriteLine($"- {student}");
+            isFound = true;
+        }
+    }
+
+    if (!isFound)
+    {
+        Console.WriteLine("Khong tim thay sinh vien phu hop.");
+    }
 }
 
 static void RunFunctionRefactorExercise()
