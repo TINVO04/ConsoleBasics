@@ -18,7 +18,8 @@ Repo thực hành C# Console App theo lộ trình .NET cơ bản.
 | `Day01.ConsoleBasics` | Console App Day 1: nhập/xuất, biến, kiểu dữ liệu, tính toán đơn giản | Hoàn thành |
 | `Day02.ConditionAndValidation` | Console App Day 2: điều kiện, validate, `if/else`, `switch/case` | Hoàn thành, đã merge vào `main` |
 | `Day03.LoopsAndMenu` | Console App Day 3: vòng lặp, menu lặp, danh sách tên, mini challenge chặn nhập sai menu | Hoàn thành, đã merge vào `main` |
-| `Day04.CollectionsAndFunctions` | Console App Day 4: `List<string>`, tìm kiếm chuỗi, tách function, mini challenge kiểm tra mật khẩu | Hoàn thành, chuẩn bị tạo Pull Request |
+| `Day04.CollectionsAndFunctions` | Console App Day 4: `List<string>`, tìm kiếm chuỗi, tách function, mini challenge kiểm tra mật khẩu | Hoàn thành, đã merge vào `main` |
+| `Day05.Week1Review` | Console App Day 5: ôn tập tuần 1, tính hóa đơn, quản lý sinh viên, refactor function | Hoàn thành, chuẩn bị tạo Pull Request |
 | `.github/workflows/dotnet-ci.yml` | GitHub Actions workflow để build project .NET | Đã thêm |
 
 ## Day 1 - Console Basics
@@ -98,6 +99,26 @@ Xem chi tiết tại:
 Day04.CollectionsAndFunctions/README.md
 ```
 
+## Day 5 - Week 1 Review
+
+Nội dung đã làm:
+
+- Bài test 1: App tính hóa đơn có giảm giá theo loại khách hàng.
+- Bài test 2: App quản lý sinh viên bằng `List<string>` gồm thêm, xem, tìm, xóa.
+- Bài test 3: Refactor code, tách function và đặt tên biến rõ ràng.
+- Có menu chính cho Day 5.
+- Có menu con quản lý sinh viên.
+- Có validate dữ liệu nhập bằng `string.IsNullOrWhiteSpace` và `decimal.TryParse`.
+- Có xử lý chuỗi bằng `Trim`, `ToLower` và `Contains`.
+- Có sử dụng `Add`, `Remove`, `Count` và `foreach` với `List<string>`.
+- Có README riêng cho Day 5.
+
+Xem chi tiết tại:
+
+```text
+Day05.Week1Review/README.md
+```
+
 ## Cách chạy Day 1
 
 Mở Terminal tại thư mục gốc repo và chạy:
@@ -167,6 +188,24 @@ Sau khi chạy, chọn bài trong menu:
 0. Thoat
 ```
 
+## Cách chạy Day 5
+
+Mở Terminal tại thư mục gốc repo và chạy:
+
+```powershell
+dotnet run --project Day05.Week1Review
+```
+
+Sau khi chạy, chọn bài trong menu:
+
+```text
+===== DAY 5 - WEEK 1 REVIEW =====
+1. Bai test 1 - Tinh hoa don co giam gia theo loai khach hang
+2. Bai test 2 - Quan ly sinh vien bang List
+3. Bai test 3 - Refactor code va dat ten bien ro rang
+0. Thoat
+```
+
 ## Git workflow
 
 Mỗi ngày học nên làm trên branch riêng theo mẫu:
@@ -182,6 +221,7 @@ feature/week1-day01-tinvo
 feature/week1-day02-tinvo
 feature/week1-day03-tinvo
 feature/week1-day04-tinvo
+feature/week1-day05-tinvo
 ```
 
 Quy trình cơ bản:
@@ -215,4 +255,5 @@ CI hiện kiểm tra:
 | Day 1 | Console basics, biến, kiểu dữ liệu, nhập/xuất, tính toán đơn giản | Hoàn thành, đã merge vào `main` |
 | Day 2 | Input, ép kiểu, `if/else`, `switch/case`, validate cơ bản | Hoàn thành, đã merge vào `main` |
 | Day 3 | Vòng lặp, menu lặp, `for`, `while`, `foreach`, `List<string>`, chặn nhập sai menu | Hoàn thành, đã merge vào `main` |
-| Day 4 | `List<string>`, xử lý chuỗi, tìm kiếm không phân biệt hoa/thường, function, kiểm tra mật khẩu | Hoàn thành, chuẩn bị tạo Pull Request |
+| Day 4 | `List<string>`, xử lý chuỗi, tìm kiếm không phân biệt hoa/thường, function, kiểm tra mật khẩu | Hoàn thành, đã merge vào `main` |
+| Day 5 | Ôn tập tuần 1, hóa đơn giảm giá, quản lý sinh viên bằng `List<string>`, refactor function | Hoàn thành, chuẩn bị tạo Pull Request |
