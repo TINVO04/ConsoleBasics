@@ -3,12 +3,7 @@ bool isRunning = true;
 
 while (isRunning)
 {
-    Console.WriteLine("===== DAY 5 - WEEK 1 REVIEW =====");
-    Console.WriteLine("1. Bai test 1 - Tinh hoa don co giam gia theo loai khach hang");
-    Console.WriteLine("2. Bai test 2 - Quan ly sinh vien bang List");
-    Console.WriteLine("3. Bai test 3 - Refactor code va dat ten bien ro rang");
-    Console.WriteLine("0. Thoat");
-    Console.Write("Chon bai: ");
+    ShowMainMenu();
 
     string choice = Console.ReadLine();
 
@@ -37,6 +32,16 @@ while (isRunning)
     }
 
     Console.WriteLine();
+}
+
+static void ShowMainMenu()
+{
+    Console.WriteLine("===== DAY 5 - WEEK 1 REVIEW =====");
+    Console.WriteLine("1. Bai test 1 - Tinh hoa don co giam gia theo loai khach hang");
+    Console.WriteLine("2. Bai test 2 - Quan ly sinh vien bang List");
+    Console.WriteLine("3. Bai test 3 - Refactor code va dat ten bien ro rang");
+    Console.WriteLine("0. Thoat");
+    Console.Write("Chon bai: ");
 }
 
 static void RunInvoiceDiscountTest()
@@ -114,120 +119,43 @@ static void RunInvoiceDiscountTest()
     Console.WriteLine($"So tien can thanh toan: {finalAmount}");
 }
 
+static void ShowStudentMenu()
+{
+    Console.WriteLine("===== BAI TEST 2 - QUAN LY SINH VIEN =====");
+    Console.WriteLine("1. Them sinh vien");
+    Console.WriteLine("2. Xem danh sach sinh vien");
+    Console.WriteLine("3. Tim sinh vien");
+    Console.WriteLine("4. Xoa sinh vien");
+    Console.WriteLine("0. Quay lai menu chinh");
+    Console.Write("Chon chuc nang: ");
+}
+
 static void RunStudentManagementTest(List<string> students)
 {
     bool isStudentMenuRunning = true;
 
     while (isStudentMenuRunning)
     {
-        Console.WriteLine("===== BAI TEST 2 - QUAN LY SINH VIEN =====");
-        Console.WriteLine("1. Them sinh vien");
-        Console.WriteLine("2. Xem danh sach sinh vien");
-        Console.WriteLine("3. Tim sinh vien");
-        Console.WriteLine("4. Xoa sinh vien");
-        Console.WriteLine("0. Quay lai menu chinh");
-        Console.Write("Chon chuc nang: ");
+        ShowStudentMenu();
 
         string choice = Console.ReadLine();
 
         switch (choice)
         {
             case "1":
-                Console.Write("Nhap ten sinh vien: ");
-                string studentName = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(studentName))
-                {
-                    Console.WriteLine("Ten sinh vien khong duoc de trong.");
-                    break;
-                }
-
-                students.Add(studentName.Trim());
-                Console.WriteLine("Da them sinh vien.");
+                AddStudent(students);
                 break;
 
             case "2":
-                if (students.Count == 0)
-                {
-                    Console.WriteLine("Danh sach sinh vien dang rong.");
-                    break;
-                }
-
-                Console.WriteLine("Danh sach sinh vien:");
-
-                foreach (string student in students)
-                {
-                    Console.WriteLine($"- {student}");
-                }
-
+                ShowStudents(students);
                 break;
 
             case "3":
-                if (students.Count == 0)
-                {
-                    Console.WriteLine("Danh sach sinh vien dang rong.");
-                    break;
-                }
-
-                Console.Write("Nhap tu khoa tim kiem: ");
-                string keyword = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(keyword))
-                {
-                    Console.WriteLine("Tu khoa tim kiem khong duoc de trong.");
-                    break;
-                }
-
-                string normalizedKeyword = keyword.Trim().ToLower();
-                bool isFound = false;
-
-                Console.WriteLine("Ket qua tim kiem:");
-
-                foreach (string student in students)
-                {
-                    string normalizedStudent = student.ToLower();
-
-                    if (normalizedStudent.Contains(normalizedKeyword))
-                    {
-                        Console.WriteLine($"- {student}");
-                        isFound = true;
-                    }
-                }
-
-                if (!isFound)
-                {
-                    Console.WriteLine("Khong tim thay sinh vien phu hop.");
-                }
-
+                SearchStudents(students);
                 break;
 
             case "4":
-                if (students.Count == 0)
-                {
-                    Console.WriteLine("Danh sach sinh vien dang rong.");
-                    break;
-                }
-
-                Console.Write("Nhap ten sinh vien can xoa: ");
-                string studentNameToRemove = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(studentNameToRemove))
-                {
-                    Console.WriteLine("Ten sinh vien can xoa khong duoc de trong.");
-                    break;
-                }
-
-                bool isRemoved = students.Remove(studentNameToRemove.Trim());
-
-                if (isRemoved)
-                {
-                    Console.WriteLine("Da xoa sinh vien.");
-                }
-                else
-                {
-                    Console.WriteLine("Khong tim thay sinh vien can xoa.");
-                }
-
+                RemoveStudent(students);
                 break;
 
             case "0":
@@ -243,7 +171,109 @@ static void RunStudentManagementTest(List<string> students)
     }
 }
 
+static void AddStudent(List<string> students)
+{
+    Console.Write("Nhap ten sinh vien: ");
+    string studentName = Console.ReadLine();
+
+    if (string.IsNullOrWhiteSpace(studentName))
+    {
+        Console.WriteLine("Ten sinh vien khong duoc de trong.");
+        return;
+    }
+
+    students.Add(studentName.Trim());
+    Console.WriteLine("Da them sinh vien.");
+}
+
+static void ShowStudents(List<string> students)
+{
+    if (students.Count == 0)
+    {
+        Console.WriteLine("Danh sach sinh vien dang rong.");
+        return;
+    }
+
+    Console.WriteLine("Danh sach sinh vien:");
+
+    foreach (string student in students)
+    {
+        Console.WriteLine($"- {student}");
+    }
+}
+
+static void SearchStudents(List<string> students)
+{
+    if (students.Count == 0)
+    {
+        Console.WriteLine("Danh sach sinh vien dang rong.");
+        return;
+    }
+
+    Console.Write("Nhap tu khoa tim kiem: ");
+    string keyword = Console.ReadLine();
+
+    if (string.IsNullOrWhiteSpace(keyword))
+    {
+        Console.WriteLine("Tu khoa tim kiem khong duoc de trong.");
+        return;
+    }
+
+    string normalizedKeyword = keyword.Trim().ToLower();
+    bool isFound = false;
+
+    Console.WriteLine("Ket qua tim kiem:");
+
+    foreach (string student in students)
+    {
+        string normalizedStudent = student.ToLower();
+
+        if (normalizedStudent.Contains(normalizedKeyword))
+        {
+            Console.WriteLine($"- {student}");
+            isFound = true;
+        }
+    }
+
+    if (!isFound)
+    {
+        Console.WriteLine("Khong tim thay sinh vien phu hop.");
+    }
+}
+
+static void RemoveStudent(List<string> students)
+{
+    if (students.Count == 0)
+    {
+        Console.WriteLine("Danh sach sinh vien dang rong.");
+        return;
+    }
+
+    Console.Write("Nhap ten sinh vien can xoa: ");
+    string studentNameToRemove = Console.ReadLine();
+
+    if (string.IsNullOrWhiteSpace(studentNameToRemove))
+    {
+        Console.WriteLine("Ten sinh vien can xoa khong duoc de trong.");
+        return;
+    }
+
+    bool isRemoved = students.Remove(studentNameToRemove.Trim());
+
+    if (isRemoved)
+    {
+        Console.WriteLine("Da xoa sinh vien.");
+    }
+    else
+    {
+        Console.WriteLine("Khong tim thay sinh vien can xoa.");
+    }
+}
+
 static void RunRefactorReviewTest()
 {
-    Console.WriteLine("Ban da chon Bai test 3 - Refactor code va dat ten bien ro rang.");
+    Console.WriteLine("Bai test 3 da duoc ap dung bang cach refactor code thanh cac function nho.");
+    Console.WriteLine("Cac function da tach: ShowMainMenu, ShowStudentMenu, AddStudent, ShowStudents, SearchStudents, RemoveStudent.");
+    Console.WriteLine("Muc tieu: code de doc hon, moi function co mot nhiem vu ro rang.");
 }
+
