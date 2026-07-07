@@ -186,5 +186,37 @@ static void RunFunctionRefactorExercise()
 
 static void RunPasswordChallenge()
 {
-    Console.WriteLine("Ban da chon Bai 4 - Kiem tra mat khau.");
+    Console.WriteLine("===== MINI CHALLENGE - KIEM TRA MAT KHAU =====");
+    Console.Write("Nhap mat khau: ");
+
+    string password = Console.ReadLine();
+
+    if (string.IsNullOrWhiteSpace(password))
+    {
+        Console.WriteLine("Mat khau khong duoc de trong.");
+        return;
+    }
+
+    bool hasEnoughLength = password.Length >= 8;
+    bool hasUppercaseLetter = false;
+
+    foreach (char character in password)
+    {
+        if (char.IsUpper(character))
+        {
+            hasUppercaseLetter = true;
+            break;
+        }
+    }
+
+    if (hasEnoughLength && hasUppercaseLetter)
+    {
+        Console.WriteLine("Mat khau hop le.");
+    }
+    else
+    {
+        Console.WriteLine("Mat khau khong hop le.");
+        Console.WriteLine("Mat khau can co do dai >= 8 va it nhat 1 ky tu viet hoa.");
+    }
 }
+
