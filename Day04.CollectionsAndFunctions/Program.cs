@@ -1,4 +1,7 @@
-﻿bool isRunning = true;
+﻿
+List<string> students = new List<string>();
+
+bool isRunning = true;
 
 while (isRunning)
 {
@@ -15,7 +18,7 @@ while (isRunning)
     switch (choice)
     {
         case "1":
-            RunStudentListExercise();
+            RunStudentListExercise(students);
             break;
 
         case "2":
@@ -43,9 +46,63 @@ while (isRunning)
     Console.WriteLine();
 }
 
-static void RunStudentListExercise()
+static void RunStudentListExercise(List<string> students)
 {
-    Console.WriteLine("Ban da chon Bai 1 - Quan ly danh sach sinh vien.");
+    bool isStudentMenuRunning = true;
+
+    while (isStudentMenuRunning)
+    {
+        Console.WriteLine("===== BAI 1 - QUAN LY DANH SACH SINH VIEN =====");
+        Console.WriteLine("1. Them sinh vien");
+        Console.WriteLine("2. Xem danh sach sinh vien");
+        Console.WriteLine("0. Quay lai menu chinh");
+        Console.Write("Chon chuc nang: ");
+
+        string choice = Console.ReadLine();
+
+        switch (choice)
+        {
+            case "1":
+                Console.Write("Nhap ten sinh vien: ");
+                string studentName = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(studentName))
+                {
+                    Console.WriteLine("Ten sinh vien khong duoc de trong.");
+                    break;
+                }
+
+                students.Add(studentName.Trim());
+                Console.WriteLine("Da them sinh vien.");
+                break;
+
+            case "2":
+                if (students.Count == 0)
+                {
+                    Console.WriteLine("Danh sach sinh vien dang rong.");
+                    break;
+                }
+
+                Console.WriteLine("Danh sach sinh vien:");
+
+                foreach (string student in students)
+                {
+                    Console.WriteLine($"- {student}");
+                }
+
+                break;
+
+            case "0":
+                isStudentMenuRunning = false;
+                break;
+
+            default:
+                Console.WriteLine("Lua chon khong hop le.");
+                break;
+        }
+
+        Console.WriteLine();
+    }
 }
 
 static void RunStudentSearchExercise()
